@@ -1,0 +1,42 @@
+.btn {
+  cursor: pointer;
+
+  position: relative;
+  padding: 0.5rem 1rem;
+  @include flex($dir: row-reverse, $jcn: space-between, $gap: 1.5rem);
+  display: inline-flex;
+  background-color: #eee;
+  color: $header-mobile-bg;
+  transition: all 0.3s ease-in-out;
+  .btn-icon {
+    width: 1rem;
+    height: 100%;
+    &::after,
+    &::before {
+      content: "";
+      top: calc(100% - 4px);
+      left: 0;
+      transform: translateX(2.5rem);
+      width: 2px;
+      height: 4px;
+      background-color: white;
+      position: absolute;
+    }
+    &::before {
+      top: 0;
+    }
+  }
+  &:hover {
+    background-color: #fff;
+    color: black;
+  }
+  &.outline {
+    color: white;
+    border: 1px solid white;
+    background-color: transparent;
+    &:hover {
+      color: black;
+      background-color: white;
+    }
+  }
+}

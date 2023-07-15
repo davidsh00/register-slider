@@ -1,0 +1,209 @@
+#register {
+  font-family: "Vazirmatn", sans-serif;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  .main {
+    flex-grow: 1;
+    height: 100%;
+  }
+  header {
+    background-color: $header-mobile-bg;
+    z-index: 2;
+    color: white;
+    width: 100%;
+    position: relative;
+    @include flex($dir: row-reverse, $jcn: space-between, $aim: center);
+    .header-logo {
+      width: 3rem;
+    }
+    .header-nav {
+      .nav-toggle {
+        width: 1rem;
+        height: 1rem;
+        cursor: pointer;
+        position: relative;
+        margin-left: 1rem;
+        .close,
+        .open {
+          position: absolute;
+        }
+        .close {
+          opacity: 0;
+        }
+      }
+      .nav-nav {
+        color: black;
+        width: 100%;
+        right: 0;
+        top: 100%;
+        background-color: rgba(255,255,255,.8);
+        position: absolute;
+        @include flex($dir: column, $gap: 0);
+        max-height: 0;
+        overflow: hidden;
+        transition: all 0.2s ease-in-out;
+        li {
+          width: 100%;
+        }
+        li a {
+          text-align: center;
+          display: inline-block;
+          width: 100%;
+          padding: 0.5rem 1rem;
+          &:hover {
+            background: $navbar_link_hover;
+          }
+        }
+      }
+      &.open {
+        .nav-toggle {
+          .close {
+            opacity: 1;
+          }
+          .open {
+            opacity: 0;
+          }
+        }
+        .nav-nav {
+          max-height: 100vh;
+        }
+      }
+    }
+    @include breakpoint(md) {
+      border-bottom: 2px solid white;
+
+      background-color: transparent;
+      position: absolute;
+      transform: translateX(-50%);
+      left: 50%;
+      top: 0;
+      width: 90%;
+      @include flex($jcn: space-between, $aim: center);
+      .header-logo {
+        width: 3rem;
+      }
+      .header-nav {
+        .nav-toggle {
+          display: none;
+        }
+        .nav-nav {
+          overflow: visible;
+
+          color: white;
+          @include flex($gap: 1rem);
+          max-height: 100px;
+          position: static;
+          background-color: transparent;
+          li {
+            width: auto;
+            &::before {
+              content: "";
+              width: 2px;
+              height: 5px;
+              background-color: white;
+              position: absolute;
+
+              top: calc(100% - 5px);
+            }
+          }
+          li a {
+            width: auto;
+          }
+        }
+      }
+    }
+  }
+  .slider {
+    width: 100%;
+    height: 100%;
+    @include flex($dir: column, $gap: 0);
+    .slider-slide {
+      cursor: pointer;
+      position: relative;
+      filter: grayscale(1);
+
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      height: 10vh;
+      width: 100%;
+      &:hover {
+        height: 15vh;
+        filter: grayscale(0.5);
+      }
+    }
+
+    .slide-container {
+      color: white;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      @include flex($dir: column);
+      .slide-actions {
+        width: 100%;
+        text-align: end;
+      }
+      h3 {
+        font-size: 0.7rem;
+      }
+      .slide-actions,
+      p {
+        opacity: 0;
+        display: none;
+      }
+    }
+    .slider-slide.active {
+      flex-grow: 1;
+      filter: grayscale(0);
+      .slide-container {
+        padding: 2rem;
+        justify-content: flex-end;
+        align-items: flex-start;
+        h3,
+        p,
+        .slide-actions {
+          display: inline-block;
+        }
+        h3 {
+            font-size: 2rem;
+          opacity: 0;
+          animation: sliderSlide 0.5s 0.25s forwards ease-in-out;
+        }
+        p {
+          animation: sliderSlide 0.5s 0.5s forwards ease-in-out;
+        }
+        .slide-actions {
+          animation: sliderSlide 0.5s 0.75s forwards ease-in-out;
+        }
+      }
+    }
+    @include breakpoint(md) {
+      @include flex($gap: 0);
+      .slider-slide {
+        &:hover {
+          width: 7vw;
+          height: 100%;
+        }
+        width: 5vw;
+        height: 100%;
+      }
+      .slider-slide.active {
+        .slide-container {
+            h3{
+                font-size: 4rem;
+            }
+          .slide-actions {
+            text-align: start;
+          }
+          .btn {
+            width: auto;
+          }
+        }
+      }
+    }
+  }
+}
