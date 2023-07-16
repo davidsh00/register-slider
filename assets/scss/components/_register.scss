@@ -7,15 +7,19 @@
   display: flex;
   flex-direction: column;
   .main {
+    position: relative;
     flex-grow: 1;
     height: 100%;
+    @include flex();
   }
   header {
+    opacity: 0;
     background-color: $header-mobile-bg;
     z-index: 2;
     color: white;
     width: 100%;
     position: relative;
+    max-height: 0;
     @include flex($dir: row-reverse, $jcn: space-between, $aim: center);
     .header-logo {
       width: 3rem;
@@ -40,7 +44,7 @@
         width: 100%;
         right: 0;
         top: 100%;
-        background-color: rgba(255,255,255,.8);
+        background-color: rgba(255, 255, 255, 0.8);
         position: absolute;
         @include flex($dir: column, $gap: 0);
         max-height: 0;
@@ -126,11 +130,11 @@
       position: relative;
       filter: grayscale(1);
 
-      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
       height: 10vh;
       width: 100%;
       &:hover {
-        height: 15vh;
+        height: 15vh !important;
         filter: grayscale(0.5);
       }
     }
@@ -163,44 +167,105 @@
         padding: 2rem;
         justify-content: flex-end;
         align-items: flex-start;
-        h3,
-        p,
-        .slide-actions {
-          display: inline-block;
-        }
+
         h3 {
-            font-size: 2rem;
+          font-size: 2rem;
           opacity: 0;
-          animation: sliderSlide 0.5s 0.25s forwards ease-in-out;
-        }
-        p {
-          animation: sliderSlide 0.5s 0.5s forwards ease-in-out;
-        }
-        .slide-actions {
-          animation: sliderSlide 0.5s 0.75s forwards ease-in-out;
         }
       }
     }
     @include breakpoint(md) {
       @include flex($gap: 0);
       .slider-slide {
-        &:hover {
-          width: 7vw;
-          height: 100%;
-        }
-        width: 5vw;
         height: 100%;
+        width: 5vw;
+        &:hover {
+          width: 7vw !important;
+          height: 100% !important;
+        }
       }
       .slider-slide.active {
         .slide-container {
-            h3{
-                font-size: 4rem;
-            }
+          h3 {
+            font-size: 4rem;
+          }
           .slide-actions {
             text-align: start;
           }
           .btn {
             width: auto;
+          }
+        }
+      }
+    }
+  }
+  .intro {
+    width: 100%;
+    height: 100%;
+    @include flex();
+    position: absolute;
+    z-index: 3;
+    &::after {
+      content: "";
+      background: url("../img/intro.png");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      height: 100%;
+      position: absolute;
+      z-index: -1;
+    }
+    .intro-loading {
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: absolute;
+      top: 2vh;
+      left: 2vw;
+      color: white;
+      font-weight: 700;
+    }
+  }
+  &.intro {
+    .intro {
+      .intro-loading {
+        opacity: 0;
+      }
+      &::after {
+        animation: introText 4s forwards ease-in-out;
+      }
+    }
+  }
+  &.loaded {
+    header {
+      animation: headerEnter 0.5s 0.5s forwards
+        cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      @include breakpoint(md) {
+        animation: headerEnterDesktop 0.5s 0.5s forwards
+          cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+    }
+
+    .slider {
+      .slider-slide {
+        &.active .slide-container {
+          h3,
+          p,
+          .slide-actions {
+            display: inline-block;
+          }
+          h3 {
+            font-size: 2rem;
+            opacity: 0;
+            animation: sliderSlide 0.5s 0.25s forwards ease-in-out;
+          }
+          p {
+            animation: sliderSlide 0.5s 0.5s forwards ease-in-out;
+          }
+          .slide-actions {
+            animation: sliderSlide 0.5s 0.75s forwards ease-in-out;
           }
         }
       }

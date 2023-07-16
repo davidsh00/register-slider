@@ -6,6 +6,39 @@
     opacity: 1;
   }
 }
+@keyframes introText {
+  90% {
+    pointer-events: all;
+  }
+  100% {
+    display: none;
+    transform: scale(50) translateX(-2%);
+  }
+}
+@keyframes headerEnter {
+  from {
+    transform: translate(0%, -100%);
+    opacity: 0;
+    overflow: hidden;
+  }
+  to {
+    overflow: visible;
+    max-height: 10vh;
+    transform: translate(0%, 0);
+    opacity: 1;
+  }
+}
+@keyframes headerEnterDesktop {
+  from {
+    transform: translate(-50%, -100%);
+    opacity: 0;
+  }
+  to {
+    max-height: 10vh;
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+}
 html,
 *,
 body {
@@ -40,15 +73,23 @@ a {
   flex-direction: column;
 }
 #register .main {
+  position: relative;
   flex-grow: 1;
   height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
 }
 #register header {
+  opacity: 0;
   background-color: rgb(43, 42, 42);
   z-index: 2;
   color: white;
   width: 100%;
   position: relative;
+  max-height: 0;
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
@@ -170,12 +211,12 @@ a {
   cursor: pointer;
   position: relative;
   filter: grayscale(1);
-  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
   height: 10vh;
   width: 100%;
 }
 #register .slider .slider-slide:hover {
-  height: 15vh;
+  height: 15vh !important;
   filter: grayscale(0.5);
 }
 #register .slider .slide-container {
@@ -212,21 +253,9 @@ a {
   justify-content: flex-end;
   align-items: flex-start;
 }
-#register .slider .slider-slide.active .slide-container h3,
-#register .slider .slider-slide.active .slide-container p,
-#register .slider .slider-slide.active .slide-container .slide-actions {
-  display: inline-block;
-}
 #register .slider .slider-slide.active .slide-container h3 {
   font-size: 2rem;
   opacity: 0;
-  animation: sliderSlide 0.5s 0.25s forwards ease-in-out;
-}
-#register .slider .slider-slide.active .slide-container p {
-  animation: sliderSlide 0.5s 0.5s forwards ease-in-out;
-}
-#register .slider .slider-slide.active .slide-container .slide-actions {
-  animation: sliderSlide 0.5s 0.75s forwards ease-in-out;
 }
 @media (min-width: 720px) {
   #register .slider {
@@ -237,12 +266,12 @@ a {
     gap: 0;
   }
   #register .slider .slider-slide {
-    width: 5vw;
     height: 100%;
+    width: 5vw;
   }
   #register .slider .slider-slide:hover {
-    width: 7vw;
-    height: 100%;
+    width: 7vw !important;
+    height: 100% !important;
   }
   #register .slider .slider-slide.active .slide-container h3 {
     font-size: 4rem;
@@ -253,6 +282,69 @@ a {
   #register .slider .slider-slide.active .slide-container .btn {
     width: auto;
   }
+}
+#register .intro {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  position: absolute;
+  z-index: 3;
+}
+#register .intro::after {
+  content: "";
+  background: url("../img/intro.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+}
+#register .intro .intro-loading {
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: absolute;
+  top: 2vh;
+  left: 2vw;
+  color: white;
+  font-weight: 700;
+}
+#register.intro .intro .intro-loading {
+  opacity: 0;
+}
+#register.intro .intro::after {
+  animation: introText 4s forwards ease-in-out;
+}
+#register.loaded header {
+  animation: headerEnter 0.5s 0.5s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+@media (min-width: 720px) {
+  #register.loaded header {
+    animation: headerEnterDesktop 0.5s 0.5s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+}
+#register.loaded .slider .slider-slide.active .slide-container h3,
+#register.loaded .slider .slider-slide.active .slide-container p,
+#register.loaded .slider .slider-slide.active .slide-container .slide-actions {
+  display: inline-block;
+}
+#register.loaded .slider .slider-slide.active .slide-container h3 {
+  font-size: 2rem;
+  opacity: 0;
+  animation: sliderSlide 0.5s 0.25s forwards ease-in-out;
+}
+#register.loaded .slider .slider-slide.active .slide-container p {
+  animation: sliderSlide 0.5s 0.5s forwards ease-in-out;
+}
+#register.loaded .slider .slider-slide.active .slide-container .slide-actions {
+  animation: sliderSlide 0.5s 0.75s forwards ease-in-out;
 }
 
 .btn {

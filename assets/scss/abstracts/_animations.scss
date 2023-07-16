@@ -6,3 +6,39 @@
     opacity: 1;
   }
 }
+@keyframes introText {
+  0% {
+  }
+  90% {
+    pointer-events: all;
+  }
+  100% {
+    display: none;
+    transform: scale(50) translateX(-2%);
+  }
+}
+@keyframes headerEnter {
+  from {
+    transform: translate(0%, -100%);
+    opacity: 0;
+    overflow: hidden;
+  }
+  to {
+    overflow: visible;
+    max-height: 10vh;
+    transform: translate(0%, 0);
+    opacity: 1;
+  }
+}
+@keyframes headerEnterDesktop {
+  from {
+    transform: translate(-50%, -100%);
+    opacity: 0;
+  }
+  to {
+    max-height: 10vh;
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+}
+

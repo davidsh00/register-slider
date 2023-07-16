@@ -16,7 +16,7 @@
 </head>
 
 <body>
-    <section id="register">
+    <section id="register" class="">
         <header>
             <nav class="header-nav">
                 <div class="nav-toggle" id="toggleNav">
@@ -24,18 +24,14 @@
                     <i class=" close fa-solid fa-xmark"></i>
                 </div>
                 <ul class="nav-nav">
-                    <li><a href="#">
-                            صفحه اصلی
-                        </a></li>
-                    <li><a href="#">
-                            خدمات ما
-                        </a></li>
-                    <li><a href="#">
-                            ارتبارط با ما
-                        </a></li>
-                    <li><a href="#">
-                            درباره ما
-                        </a></li>
+                    <li><a href="#" data-card_id="card1">
+                            کارت 1 </a></li>
+                    <li><a href="#" data-card_id="card2">
+                            کارت2 </a></li>
+                    <li><a href="#" data-card_id="card3">
+                            کارت3 </a></li>
+                    <li><a href="#" data-card_id="card4">
+                            کارت 4 </a></li>
                 </ul>
             </nav>
             <div class="header-logo">
@@ -44,8 +40,13 @@
 
         </header>
         <div class="main">
+            <div class="intro">
+                <span class="intro-loading">0%</span>
+                <h2 class="intro-text">
+                </h2>
+            </div>
             <ul class="slider">
-                <li class="slider-slide active">
+                <li class="slider-slide active" id="card1">
 
                     <img src="./assets/img/slider/1.jpg" alt="slide-1">
                     <div class="slide-container">
@@ -62,7 +63,7 @@
                     </div>
 
                 </li>
-                <li class="slider-slide ">
+                <li class="slider-slide " id="card2">
 
                     <img src="./assets/img/slider/2.jpg" alt="slide-2">
                     <div class="slide-container">
@@ -79,7 +80,7 @@
                     </div>
 
                 </li>
-                <li class="slider-slide ">
+                <li class="slider-slide " id="card3">
 
                     <img src="./assets/img/slider/3.jpg" alt="slide-3">
                     <div class="slide-container">
@@ -96,7 +97,7 @@
                     </div>
 
                 </li>
-                <li class="slider-slide ">
+                <li class="slider-slide " id="card4">
 
                     <img src="./assets/img/slider/4.jpg" alt="slide-4">
                     <div class="slide-container">
