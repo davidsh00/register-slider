@@ -207,17 +207,19 @@
     z-index: 3;
     &::after {
       content: "";
-      background: url("../img/intro.png");
+      background: url("../img/intro.svg");
       background-position: center;
       background-repeat: no-repeat;
-      background-size: cover;
+      background-size: covrer;
       left: 0;
       right: 0;
       top: 0;
       bottom: 0;
       height: 100%;
+      width: 100%;
       position: absolute;
       z-index: -1;
+      animation: introBrith 3s infinite ease-in-out;
     }
     .intro-loading {
       transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -240,10 +242,10 @@
   }
   &.loaded {
     header {
-      animation: headerEnter 0.5s 0.5s forwards
+      animation: headerEnter 0.5s 0s forwards
         cubic-bezier(0.175, 0.885, 0.32, 1.275);
       @include breakpoint(md) {
-        animation: headerEnterDesktop 0.5s 0.5s forwards
+        animation: headerEnterDesktop 0.5s 0s forwards
           cubic-bezier(0.175, 0.885, 0.32, 1.275);
       }
     }

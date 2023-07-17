@@ -7,12 +7,12 @@
   }
 }
 @keyframes introText {
-  90% {
-    pointer-events: all;
+  99% {
+    transform: scale(50);
+    content: "";
   }
   100% {
-    display: none;
-    transform: scale(50) translateX(-2%);
+    transform: scale(50) translateX(-5%);
   }
 }
 @keyframes headerEnter {
@@ -37,6 +37,14 @@
     max-height: 10vh;
     transform: translate(-50%, 0);
     opacity: 1;
+  }
+}
+@keyframes introBrith {
+  0%, 100% {
+    transform: scale(100%);
+  }
+  50% {
+    transform: scale(105%);
   }
 }
 html,
@@ -296,17 +304,19 @@ a {
 }
 #register .intro::after {
   content: "";
-  background: url("../img/intro.png");
+  background: url("../img/intro.svg");
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: covrer;
   left: 0;
   right: 0;
   top: 0;
   bottom: 0;
   height: 100%;
+  width: 100%;
   position: absolute;
   z-index: -1;
+  animation: introBrith 3s infinite ease-in-out;
 }
 #register .intro .intro-loading {
   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -323,11 +333,11 @@ a {
   animation: introText 4s forwards ease-in-out;
 }
 #register.loaded header {
-  animation: headerEnter 0.5s 0.5s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation: headerEnter 0.5s 0s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 @media (min-width: 720px) {
   #register.loaded header {
-    animation: headerEnterDesktop 0.5s 0.5s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation: headerEnterDesktop 0.5s 0s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
   }
 }
 #register.loaded .slider .slider-slide.active .slide-container h3,

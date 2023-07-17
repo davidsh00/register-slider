@@ -7,14 +7,14 @@
   }
 }
 @keyframes introText {
-  0% {
+  99%{
+    transform: scale(50) ;
+
+    content: "";
   }
-  90% {
-    pointer-events: all;
-  }
+
   100% {
-    display: none;
-    transform: scale(50) translateX(-2%);
+    transform: scale(50) translateX(-5%);
   }
 }
 @keyframes headerEnter {
@@ -41,4 +41,13 @@
     opacity: 1;
   }
 }
+@keyframes introBrith {
+  0%,
+  100% {
+    transform: scale(100%);
+  }
+ 50% {
+    transform: scale(105%);
+  }
 
+}

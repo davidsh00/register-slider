@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
       setTimeout(() => {
         register.classList.add("loaded");
         register.querySelector(".intro").remove();
-      }, 3000);
+      }, 2000);
     }
   }, 30);
 });
