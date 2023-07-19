@@ -2,28 +2,26 @@
 <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1921 1081">
   <defs>
     <style>
-      .cls-1, .cls-2 {
-        fill: #fff;
-      }
-
-      .cls-3 {
+      .cls-1 {
         fill: #262525;
         stroke: #000;
         stroke-miterlimit: 10;
       }
 
-      .cls-4 {
+      .cls-2 {
         fill: none;
         mask: url(#mask);
       }
 
-      .cls-2 {
-        font-family: Bauhaus93, 'Bauhaus 93';
-        font-size: 200px;
+      .cls-3 {
+        filter: url(#luminosity-invert-noclip);
       }
 
-      .cls-5 {
-        filter: url(#luminosity-invert-noclip);
+      .cls-4 {
+        fill: #fff;
+        font-family: Arial-Black, Arial;
+        font-size: 200px;
+        font-weight: 800;
       }
     </style>
     <filter id="luminosity-invert-noclip" x="0" y="0" width="1921" height="1081" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
@@ -32,15 +30,12 @@
       <feBlend in="cm" in2="bg"/>
     </filter>
     <mask id="mask" x="0" y="0" width="1921" height="1081" maskUnits="userSpaceOnUse">
-      <g class="cls-5">
-        <g>
-          <text class="cls-2" transform="translate(707.4 598.85)"><tspan x="0" y="0">ESCO</tspan></text>
-          <ellipse class="cls-1" cx="961.1" cy="534.48" rx="36.75" ry="40.96"/>
-        </g>
+      <g class="cls-3">
+        <text class="cls-4" transform="translate(655.28 595.63)"><tspan x="0" y="0">ESCO</tspan></text>
       </g>
     </mask>
   </defs>
-  <g class="cls-4">
-    <rect class="cls-3" x=".5" y=".5" width="1920" height="1080"/>
+  <g class="cls-2">
+    <rect class="cls-1" x=".5" y=".5" width="1920" height="1080"/>
   </g>
 </svg>

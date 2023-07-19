@@ -7,14 +7,12 @@
   }
 }
 @keyframes introText {
-  99%{
-    transform: scale(50) ;
-
+  50% {
     content: "";
   }
 
   100% {
-    transform: scale(50) translateX(-5%);
+    transform: scale(65) translateX(-1%);
   }
 }
 @keyframes headerEnter {
@@ -46,8 +44,7 @@
   100% {
     transform: scale(100%);
   }
- 50% {
+  50% {
     transform: scale(105%);
   }
-
 }

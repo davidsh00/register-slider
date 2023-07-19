@@ -7,12 +7,11 @@
   }
 }
 @keyframes introText {
-  99% {
-    transform: scale(50);
+  50% {
     content: "";
   }
   100% {
-    transform: scale(50) translateX(-5%);
+    transform: scale(65) translateX(-1%);
   }
 }
 @keyframes headerEnter {
@@ -307,7 +306,7 @@ a {
   background: url("../img/intro.svg");
   background-position: center;
   background-repeat: no-repeat;
-  background-size: covrer;
+  background-size: cover;
   left: 0;
   right: 0;
   top: 0;
@@ -330,7 +329,7 @@ a {
   opacity: 0;
 }
 #register.intro .intro::after {
-  animation: introText 4s forwards ease-in-out;
+  animation: introText 3s forwards ease-in-out;
 }
 #register.loaded header {
   animation: headerEnter 0.5s 0s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);

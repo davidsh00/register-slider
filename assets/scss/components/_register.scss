@@ -210,7 +210,7 @@
       background: url("../img/intro.svg");
       background-position: center;
       background-repeat: no-repeat;
-      background-size: covrer;
+      background-size: cover;
       left: 0;
       right: 0;
       top: 0;
@@ -236,7 +236,7 @@
         opacity: 0;
       }
       &::after {
-        animation: introText 4s forwards ease-in-out;
+        animation: introText 3s forwards ease-in-out;
       }
     }
   }
