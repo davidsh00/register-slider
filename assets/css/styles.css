@@ -11,7 +11,7 @@
     content: "";
   }
   100% {
-    transform: scale(65) translateX(-1%);
+    transform: scale(130) translateX(-0.5%);
   }
 }
 @keyframes headerEnter {
@@ -316,6 +316,11 @@ a {
   position: absolute;
   z-index: -1;
   animation: introBrith 3s infinite ease-in-out;
+}
+@media (min-width: 720px) {
+  #register .intro::after {
+    background-size: 200vmax;
+  }
 }
 #register .intro .intro-loading {
   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);

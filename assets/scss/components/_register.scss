@@ -220,6 +220,9 @@
       position: absolute;
       z-index: -1;
       animation: introBrith 3s infinite ease-in-out;
+      @include breakpoint(md){
+        background-size: calc(100vmax * 2);
+      }
     }
     .intro-loading {
       transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
