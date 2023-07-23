@@ -220,7 +220,7 @@
       position: absolute;
       z-index: -1;
       animation: introBrith 3s infinite ease-in-out;
-      @include breakpoint(md){
+      @include breakpoint(md) {
         background-size: calc(100vmax * 2);
       }
     }

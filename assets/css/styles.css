@@ -406,4 +406,38 @@ a {
   background-color: white;
 }
 
+body {
+  overflow: hidden;
+  position: relative;
+}
+body::after {
+  content: "ESCO";
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: bolder;
+  letter-spacing: 1rem;
+  font-size: 10vw;
+  color: white;
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(43, 42, 42);
+  position: absolute;
+  z-index: 10000;
+  top: 0;
+  left: 0;
+  animation: introBrith 3s infinite ease-in-out;
+}
+body #register {
+  display: none;
+}
+body.loaded #register {
+  display: flex;
+}
+body.loaded::after {
+  content: none;
+}
+
 /*# sourceMappingURL=styles.css.map */

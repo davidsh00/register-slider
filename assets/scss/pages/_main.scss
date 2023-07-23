@@ -1,0 +1,31 @@
+body {
+    overflow: hidden;
+  position: relative;
+  &::after {
+    content: "ESCO";
+    @include flex();
+    font-weight: bolder;
+    letter-spacing: 1rem;
+    font-size: 10vw;
+    color: white;
+    width: 100%;
+    height: 100vh;
+    background-color: $header-mobile-bg;
+    position: absolute;
+    z-index: 10000;
+    top: 0;
+    left: 0;
+    animation: introBrith 3s infinite ease-in-out;
+  }
+  #register {
+    display: none;
+  }
+  &.loaded {
+    #register {
+      display: flex;
+    }
+    &::after {
+      content: none;
+    }
+  }
+}
